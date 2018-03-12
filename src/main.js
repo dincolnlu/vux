@@ -7,9 +7,11 @@ import vuexI18n from 'vuex-i18n'
 import Vuex from 'vuex'
 import App from './App'
 import Text from './components/myTest'
+import axios from 'axios'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.prototype.$http=axios
 const store = new Vuex.Store({
   modules: { i18n: vuexI18n.store }
 })
