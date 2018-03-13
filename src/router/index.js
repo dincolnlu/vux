@@ -1,15 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import login from '@/components/login'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    // 重定向
+    {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect: '/login'
     }
   ]
 })
+
+router.afterEach((to, from, next) => {
+  document.title = to.name
+})
+
+export default router
