@@ -12,14 +12,14 @@
       <x-input title="发送验证码" class="weui-vcode"  placeholder="请输入短信验证码">
         <img slot="label" style="padding-right:10px;display:block;" src="../assets/images/msgIcons.png" width="24" height="24">
         <x-button @click.native="getCode" slot="right" type="default" mini >
-          <span v-show="show">获取验证码</span>
-         <span v-show="!show" class="count">{{count}} s</span>
+          <span v-show="show" >获取验证码</span>
+          <span v-show="!show" class="count">{{count}} s</span>
         </x-button>
       </x-input>
     </group>
 
     <div style="padding:15px;">
-      <x-button :gradients="['#ff6633', '#ff6633']" :disabled="true" type="primary">登录</x-button>
+      <x-button :gradients="['#ff6633', '#ff6633']" type="primary" @click.native='getData'>登录</x-button>
     </div>
 
   </div>
@@ -27,6 +27,7 @@
 
 <script>
 import { XInput, Group, XButton, Cell } from 'vux'
+import api from '../util/api'
 export default {
   components: {
     XInput,
@@ -57,7 +58,17 @@ export default {
           }
         }, 1000)
       }
+    },
+    getData () {
+      this.$http.get(api.query)
+        .then(function (respone) {
+          console.log(respone)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
+
   }
 }
 </script>

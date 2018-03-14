@@ -1,13 +1,14 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import FastClick from 'fastclick'
 import router from './router/index'
 import App from './App'
-import axios from 'axios'
 import store from './vuex/index'
+import axiosPlugin from './util/request'
 
-Vue.prototype.$http = axios
+Vue.use(axiosPlugin)
 
 FastClick.attach(document.body)
 
