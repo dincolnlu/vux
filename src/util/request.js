@@ -2,7 +2,7 @@
  * @Author: dincoln
  * @Date: 2018-03-13 17:57:00
  * @Last Modified by: dincoln
- * @Last Modified time: 2018-03-14 18:44:24
+ * @Last Modified time: 2018-03-27 14:46:22
  */
 import axios from 'axios'
 import api from './api'
@@ -52,7 +52,6 @@ Axios.interceptors.response.use(
     return res
   },
   error => {
-    // 用户登录时取数据放去本地缓存
     if (!window.localStorage.getItem('loginUserBaseInfo')) {
       router.push({
         path: '/login'

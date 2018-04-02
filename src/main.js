@@ -7,6 +7,8 @@ import router from './router/index'
 import App from './App'
 import store from './vuex/index'
 import axiosPlugin from './util/request'
+// import 'lib-flexible'
+import './util/rem.js'
 
 Vue.use(axiosPlugin)
 
